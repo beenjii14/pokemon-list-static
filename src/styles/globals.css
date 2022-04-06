@@ -1,0 +1,28 @@
+@font-face {
+  font-display: fallback;
+  font-family: 'Roboto-Regular';
+  src: url('/fonts/Roboto-Regular.woff2') format('truetype');
+}
+
+@font-face {
+  font-display: fallback;
+  font-family: 'Roboto-Bold';
+  src: url('/fonts/Roboto-Bold.woff2') format('truetype');
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto-Regular', Arial, BlinkMacSystemFont, Segoe UI, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
