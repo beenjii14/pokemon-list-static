@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { PokeApi } from 'configs';
-import { PokemonListResponse } from 'interfaces';
+import { Pokemon, PokemonListResponse } from 'interfaces';
 
 
 const pokeApi = axios.create({
@@ -11,4 +11,9 @@ const pokeApi = axios.create({
 export const getPokemonList = async ({ limit = 10 }) => {
   const { data } = await pokeApi.get<PokemonListResponse>(`/pokemon?limit=${limit}`);
   return data.results ?? [];
+}
+
+export const getPokemon = async (id: string) => {
+  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${id}`);
+  return data;
 }
