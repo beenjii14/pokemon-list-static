@@ -3,12 +3,24 @@ import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react'
 import { Layout } from 'components/layouts'
 import { getPokemon } from 'services/PokeApi'
 import { Pokemon } from 'interfaces'
+import { existsInFavorites, favoritesStorage } from 'utils'
+import { useEffect, useState } from 'react'
 
 interface Props {
   pokemon: Pokemon
 }
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
+  const [isFavorite, setIsFavorite] = useState(false)
+  const manipulateFavorite = () => {
+    favoritesStorage({ id: pokemon.id })
+    setIsFavorite(!isFavorite)
+  }
+
+  useEffect(() => {
+    setIsFavorite(existsInFavorites({ id: pokemon.id }))
+  }, [pokemon.id])
+
   return (
     <Layout title={pokemon.name}>
       <Grid.Container css={{ marginTop: '5px' }} gap={2}>
@@ -32,8 +44,14 @@ const PokemonPage: NextPage<Props> = ({ pokemon }) => {
               <Text h1 transform="capitalize">
                 {pokemon.name}
               </Text>
-              <Button color="gradient" ghost>
-                ❤️
+              <Button
+                color="gradient"
+                ghost={!isFavorite}
+                onClick={() => manipulateFavorite()}
+              >
+                {isFavorite
+                  ? 'Remove from favorites 💔'
+                  : 'Add to favorites ❤️'}
               </Button>
             </Card.Header>
             <Card.Body>

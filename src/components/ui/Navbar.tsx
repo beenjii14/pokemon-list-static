@@ -28,9 +28,11 @@ export const Navbar = () => {
       </NextLink>
       <Spacer css={{ flex: 1 }} />
       <NextLink href={'/favorites'} passHref>
-        <Text color="white" css={{ cursor: 'pointer' }}>
-          Favoritos
-        </Text>
+        <Link>
+          <Text color="white" css={{ cursor: 'pointer' }}>
+            Favoritos
+          </Text>
+        </Link>
       </NextLink>
     </div>
   )
