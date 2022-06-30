@@ -18,3 +18,7 @@ export const existsInFavorites = ({ id }: FavoritesProps): boolean => {
   const favorites = JSON.parse(getFavorites());
   return favorites.includes(id);
 }
+
+export const getFavoritesIds = (): number[] => {
+  return JSON.parse(getFavorites());
+}
