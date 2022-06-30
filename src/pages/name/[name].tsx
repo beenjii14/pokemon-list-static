@@ -111,10 +111,15 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { name } = context.params as { name: string }
   const pokemon = await getPokemon(name)
+  const pokemonSimple = {
+    id: pokemon.id,
+    name: pokemon.name,
+    sprites: pokemon.sprites,
+  }
 
   return {
     props: {
-      pokemon,
+      pokemon: pokemonSimple,
     },
   }
 }
