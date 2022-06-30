@@ -13,7 +13,11 @@ export const getPokemonList = async ({ limit = 10 }) => {
   return data.results ?? [];
 }
 
-export const getPokemon = async (id: string) => {
-  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${id}`);
-  return data;
+export const getPokemon = async (nameOrId: string) => {
+  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${nameOrId}`);
+  return {
+    id: data.id,
+    name: data.name,
+    sprites: data.sprites,
+  }
 }

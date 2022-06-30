@@ -10,7 +10,7 @@ export const PokemonCard = ({ id, name, image }: SmallPokemon) => {
         title={name}
         hoverable
         clickable
-        onClick={() => router.push(`/pokemon/${id}`)}
+        onClick={() => router.push(`/name/${name}`)}
       >
         <Card.Body css={{ p: 1 }}>
           <Card.Image src={image} width="100%" height={140} />
