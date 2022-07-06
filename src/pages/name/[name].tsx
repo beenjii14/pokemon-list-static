@@ -18,11 +18,13 @@ const PokemonByNamePage: NextPage<Props> = ({ pokemon }) => {
     setIsFavorite(!isFavorite)
     if (!isFavorite) {
       confetti({
-        zIndex: 999,
-        particleCount: 200,
+        particleCount: 500,
+        angle: 120,
         spread: 360,
-        startVelocity: 30,
-        origin: { x: 0.5, y: 0.3 },
+        origin: { x: 0.5 },
+        gravity: 0.7,
+        startVelocity: 50,
+        scalar: 0.7,
       })
     }
   }
