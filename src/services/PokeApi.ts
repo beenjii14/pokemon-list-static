@@ -14,10 +14,14 @@ export const getPokemonList = async ({ limit = 10 }) => {
 }
 
 export const getPokemon = async (nameOrId: string) => {
-  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${nameOrId}`);
-  return {
-    id: data.id,
-    name: data.name,
-    sprites: data.sprites,
+  try {
+    const { data } = await pokeApi.get<Pokemon>(`/pokemon/${nameOrId}`);
+    return {
+      id: data.id,
+      name: data.name,
+      sprites: data.sprites,
+    }
+  } catch (error) {
+    return null;
   }
 }
