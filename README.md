@@ -7,3 +7,6 @@ npm run dev
 # or
 yarn dev
 ```
+
+# Preview Demo
+(Link)[https://pokemon-list-static-two.vercel.app/]
