@@ -8,5 +8,6 @@ npm run dev
 yarn dev
 ```
 
-# Preview Demo
-(Link)[https://pokemon-list-static-two.vercel.app/]
+## Preview
+
+[Demo](https://pokemon-list-static-two.vercel.app/)
